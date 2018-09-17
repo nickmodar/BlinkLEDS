@@ -1,0 +1,36 @@
+import RPi.GPIO as GPIO
+import time 
+
+GPIO.setmode(GPIO.BCM)
+
+GPIO.setup(4, GPIO.OUT)
+GPIO.setup(5, GPIO.OUT)
+GPIO.setup(26, GPIO.OUT)
+
+interval = 0.1
+pin = 4
+#white
+pin1 = 5
+#Green
+pin2 = 26
+#Red
+
+while True:
+    for i in range(3):
+        GPIO.output(pin, GPIO.HIGH)
+        time.sleep(interval)
+        GPIO.output(pin, GPIO.LOW)
+        time.sleep(interval)
+    for i in range(3):
+        GPIO.output(pin1, GPIO.HIGH)
+        time.sleep(5*interval)
+        GPIO.output(pin1, GPIO.LOW)
+        time.sleep(interval)
+    for i in range(3):
+        GPIO.output(pin2, GPIO.HIGH)
+        time.sleep(interval)
+        GPIO.output(pin2, GPIO.LOW)
+        time.sleep(interval)
+
+GPIO.cleanup(4)
+        
